@@ -1,0 +1,15 @@
+Control
+CanvasLayer
+ProgressBar
+Button
+CollisionShape2D
+Sprite2D
+VisibleOnScreenNotifier2D
+Area2D
+Timer
+Label
+ColorRect
+Camera2D
+PathFollow2D
+TileMap
+Path2D

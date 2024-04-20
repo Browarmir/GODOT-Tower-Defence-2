@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://be2tuogp708nc"]
+
+[ext_resource type="Script" path="res://Scenes/Towers/green_tower.gd" id="1_c2r37"]
+[ext_resource type="Texture2D" uid="uid://b30exlw86u3h4" path="res://Assets/Sprites/towerDefense_tile249.png" id="1_oe36i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7n5ai"]
+radius = 134.06
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xc7p"]
+size = Vector2(47, 52)
+
+[node name="GreenTower" type="Node2D"]
+script = ExtResource("1_c2r37")
+
+[node name="TowerTurret" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("1_oe36i")
+
+[node name="TurretRange" type="Area2D" parent="."]
+
+[node name="TurretRange" type="CollisionShape2D" parent="TurretRange"]
+shape = SubResource("CircleShape2D_7n5ai")
+
+[node name="Turret" type="Area2D" parent="."]
+
+[node name="Turret" type="CollisionShape2D" parent="Turret"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_0xc7p")
+
+[node name="ShootTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="area_entered" from="TurretRange" to="." method="_on_turret_range_area_entered"]
+[connection signal="area_exited" from="TurretRange" to="." method="_on_turret_range_area_exited"]
+[connection signal="area_entered" from="Turret" to="." method="_on_turret_area_entered"]
+[connection signal="area_exited" from="Turret" to="." method="_on_turret_area_exited"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

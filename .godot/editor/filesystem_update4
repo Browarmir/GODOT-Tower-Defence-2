@@ -1,0 +1,10 @@
+res://Scenes/game.tscn
+res://Scenes/Towers/red_tower.tscn
+res://Scenes/tile_map.tscn
+res://Scenes/Enemies/enemy.tscn
+res://Scenes/Towers/bullet.tscn
+res://Scenes/platform.tscn
+res://Scenes/win_scene.tscn
+res://Scenes/defeat_scene.tscn
+res://Scenes/Towers/green_tower.tscn
+res://Scenes/Towers/exploding_bullet.tscn

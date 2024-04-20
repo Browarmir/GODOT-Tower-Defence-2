@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn4y8j8jdtahk"]
+
+[ext_resource type="Script" path="res://Scenes/Towers/red_tower.gd" id="1_djce4"]
+[ext_resource type="Texture2D" uid="uid://c75n4o0dpbmqc" path="res://Assets/Sprites/towerDefense_tile250.png" id="1_v3c1b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lcrmh"]
+radius = 227.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ia8s"]
+size = Vector2(42, 42)
+
+[node name="RedTower" type="Node2D"]
+script = ExtResource("1_djce4")
+
+[node name="TowerTurret" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_v3c1b")
+
+[node name="TurretRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurretRange"]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_lcrmh")
+
+[node name="Turret" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Turret"]
+shape = SubResource("RectangleShape2D_6ia8s")
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[connection signal="area_entered" from="TurretRange" to="." method="_on_turret_range_area_entered"]
+[connection signal="area_exited" from="TurretRange" to="." method="_on_turret_range_area_exited"]
+[connection signal="area_entered" from="Turret" to="." method="_on_turret_area_entered"]
+[connection signal="area_exited" from="Turret" to="." method="_on_turret_area_exited"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

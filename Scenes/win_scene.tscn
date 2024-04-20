@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cwkkqpxwaa5w5"]
+
+[node name="WinScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 648.0
+color = Color(0.360784, 0.54902, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 414.0
+offset_top = 255.0
+offset_right = 686.0
+offset_bottom = 301.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "YOU WON!"
+horizontal_alignment = 1
+vertical_alignment = 1
