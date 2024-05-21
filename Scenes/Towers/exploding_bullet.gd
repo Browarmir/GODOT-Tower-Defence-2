@@ -30,6 +30,3 @@ func _on_area_entered(area):
 		area.get_parent().health -= damage
 		
 		queue_free()
-		if area.get_parent().health <= 0:
-			get_parent().money  += 10
-			area.get_parent().queue_free()
