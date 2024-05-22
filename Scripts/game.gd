@@ -103,3 +103,7 @@ func show_build_menu():
 func hide_build_menu():
 	menu_visible = false
 	$"GUI/Build Panel".visible = false
+
+
+func _on_texture_button_3_pressed():
+	pass # Replace with function body.

@@ -12,3 +12,5 @@ res://Scenes/emerald_drop.gd
 res://Scenes/emerald_drop.tscn
 res://Scenes/Enemies/enemy.gd
 res://Scenes/Towers/potion_explosion.tscn
+res://Scenes/platform.tscn
+res://Scenes/Enemies/enemy_2.gd
