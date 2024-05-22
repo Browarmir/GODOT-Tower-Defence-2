@@ -1,22 +1,29 @@
 [gd_scene load_steps=4 format=3 uid="uid://bahc2acptn5mm"]
 
-[ext_resource type="Texture2D" uid="uid://dvadrfejqj04q" path="res://Assets/Sprites/towerDefense_tile251.png" id="1_1j50o"]
 [ext_resource type="Script" path="res://Scenes/Towers/bullet.gd" id="1_2srhw"]
+[ext_resource type="Texture2D" uid="uid://cx645lr5api3v" path="res://Assets/Textures/items/arrow.png" id="2_4rsjp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nce6d"]
+radius = 4.0
 height = 38.0
 
 [node name="Bullet" type="Area2D" groups=["Bullet"]]
 script = ExtResource("1_2srhw")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_1j50o")
+[node name="Sprite" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite"]
+rotation = 2.36318
+scale = Vector2(2.068, 2.068)
+texture = ExtResource("2_4rsjp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_nce6d")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -2.38419e-07)
+scale = Vector2(1, 0.4)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

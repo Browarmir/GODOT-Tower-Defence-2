@@ -1,7 +1,7 @@
 extends PathFollow2D
 
 
-var health = 20
+var health = 200
 var speed = 75
 @onready var progress_bar = $ProgressBar
 @onready var game = get_parent().get_parent()

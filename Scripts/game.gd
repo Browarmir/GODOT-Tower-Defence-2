@@ -7,7 +7,7 @@ var mob1_left_to_spawn
 var mob2_left_to_spawn
 var wave_mobs_1 = [5, 5, 10, 8, 9, 0]
 var wave_mobs_2 = [2, 4, 5, 6, 7, 0]
-var wave_speed = [0.1, 1, 0.5, 0.5, 0.3, 10]
+var wave_speed = [0.5, 1, 0.5, 0.5, 0.3, 10]
 var player_health = 100
 var last_tower
 var instance
@@ -24,11 +24,9 @@ func _process(delta):
 	if building == true:
 		if Input.is_action_just_pressed("R_Mouse"):
 			last_tower.queue_free()
-			building == false
+			building = false
 	if player_health <= 0:
 		get_tree().change_scene_to_file("res://Scenes/defeat_scene.tscn")
-	$GUI/Label.text = "Muneh: " + str(money)
-	$GUI/HealthLabel.text = "Helf: " + str(player_health)
 
 func tower_built():
 	building = false
@@ -100,10 +98,8 @@ func _on_show_build_pressed():
 
 func show_build_menu():
 	menu_visible = true
-	$"GUI/Build panel".visible = true
-	$GUI/ShowBuild.visible = false
+	$"GUI/Build Panel".visible = true
 
 func hide_build_menu():
 	menu_visible = false
-	$"GUI/Build panel".visible = false
-	$GUI/ShowBuild.visible = true
+	$"GUI/Build Panel".visible = false

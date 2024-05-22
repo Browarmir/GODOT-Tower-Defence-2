@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0i0ueaxupwvs"]
+[gd_scene load_steps=5 format=3 uid="uid://d0i0ueaxupwvs"]
 
 [ext_resource type="Script" path="res://Scenes/Towers/exploding_bullet.gd" id="1_3k85w"]
-[ext_resource type="Texture2D" uid="uid://26onnpw2wmxc" path="res://Assets/Sprites/towerDefense_tile252.png" id="1_pmfol"]
+[ext_resource type="Texture2D" uid="uid://co87cmyrel6f" path="res://Assets/Textures/items/damage_potion.png" id="2_qsgvb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o57ke"]
-radius = 14.0
+radius = 21.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ulbu8"]
+radius = 65.0
 
 [node name="ExplodingBullet" type="Area2D" groups=["Bullet"]]
 script = ExtResource("1_3k85w")
@@ -12,10 +15,29 @@ script = ExtResource("1_3k85w")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_pmfol")
+scale = Vector2(2.375, 2.375)
+texture = ExtResource("2_qsgvb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_o57ke")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="qfree_timer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="Explosion" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion"]
+shape = SubResource("CircleShape2D_ulbu8")
+disabled = true
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="qfree_timer" to="." method="_on_qfree_timer_timeout"]
+[connection signal="area_entered" from="Explosion" to="." method="_on_explosion_area_entered"]

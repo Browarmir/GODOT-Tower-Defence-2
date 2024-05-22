@@ -1,4 +1,6 @@
-res://Scenes/Enemies
-res://Scenes/Towers
 res://Scenes
+res://Assets/Sprites
+res://Assets/Fonts
+res://Scenes/Towers
+res://Scenes/Enemies
 res://Scripts

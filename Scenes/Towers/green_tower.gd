@@ -14,7 +14,7 @@ func _physics_process(delta):
 	if building == false:
 		if enemies != []:
 			current_enemy = enemies[0]
-			look_at(current_enemy.global_position)
+			$Weapon.look_at(current_enemy.global_position)
 	else:
 		$TurretRange.visible = true
 		global_position = get_global_mouse_position()
@@ -23,7 +23,7 @@ func _physics_process(delta):
 				building = false
 				get_parent().tower_built()
 		else:
-			$TowerTurret.modulate = Color(1, 1, 1)
+			$Character.modulate = Color(1, 1, 1)
 func _on_turret_range_area_entered(area):
 	if area.is_in_group("Enemy"):
 		if building == false:

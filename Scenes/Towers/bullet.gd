@@ -8,7 +8,7 @@ var damage = 1
 
 func _ready():
 	if target != null:
-		$Sprite2D.look_at(target.global_position)
+		$Sprite.look_at(target.global_position)
 		look_vec = target.global_position - global_position
 
 func _physics_process(delta):
