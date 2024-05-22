@@ -1,6 +1,6 @@
 extends Node2D
 
-var money = 25
+var money = 75
 var wave = 0
 var mobs_left = 0
 var mob1_left_to_spawn
@@ -16,6 +16,7 @@ var enemy = preload("res://Scenes/Enemies/enemy.tscn")
 var enemy2 = preload("res://Scenes/Enemies/enemy_2.tscn")
 var tower = preload("res://Scenes/Towers/red_tower.tscn")
 var green_tower = preload("res://Scenes/Towers/green_tower.tscn")
+var pillager_tower = preload("res://Scenes/Towers/pillager_tower.tscn")
 var building = false
 var menu_visible = false
 
@@ -88,7 +89,12 @@ func _on_build_green_pressed():
 
 
 func _on_texture_button_3_pressed():
-	pass # Replace with function body.
+	if building == false && money >= 25:
+		hide_build_menu()
+		selected_tower_cost = 75
+		instance = pillager_tower.instantiate()
+		add_child(instance)
+		last_tower = instance
 
 
 func _on_start_button_pressed():

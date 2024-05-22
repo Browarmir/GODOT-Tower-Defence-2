@@ -77,6 +77,7 @@ theme_override_font_sizes/font_size = 60
 text = "START WAVE"
 
 [node name="Build Panel" type="NinePatchRect" parent="GUI"]
+visible = false
 offset_left = 63.0
 offset_top = 62.0
 offset_right = 355.0
@@ -301,7 +302,7 @@ position = Vector2(561, 242)
 position = Vector2(659, 242)
 
 [node name="Platform3" parent="Platforms" instance=ExtResource("3_b7qbu")]
-position = Vector2(308, 574)
+position = Vector2(172, 607)
 
 [node name="Platform4" parent="Platforms" instance=ExtResource("3_b7qbu")]
 position = Vector2(308, 459)
@@ -310,7 +311,7 @@ position = Vector2(308, 459)
 position = Vector2(805, 462)
 
 [node name="Platform6" parent="Platforms" instance=ExtResource("3_b7qbu")]
-position = Vector2(428, 337)
+position = Vector2(240, 345)
 
 [node name="Platform7" parent="Platforms" instance=ExtResource("3_b7qbu")]
 position = Vector2(795, 245)

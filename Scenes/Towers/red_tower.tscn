@@ -9,7 +9,7 @@
 radius = 227.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ia8s"]
-size = Vector2(42, 42)
+size = Vector2(24, 24)
 
 [sub_resource type="Animation" id="Animation_amags"]
 resource_name = "Bow_pull"
@@ -150,6 +150,7 @@ shape = SubResource("CircleShape2D_lcrmh")
 [node name="Turret" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Turret"]
+position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_6ia8s")
 
 [node name="ShootTimer" type="Timer" parent="."]

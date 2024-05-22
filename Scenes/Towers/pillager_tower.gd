@@ -3,7 +3,7 @@ extends Node2D
 
 var enemies = []
 
-var bullet = preload("res://Scenes/Towers/bullet.tscn")
+var bullet = preload("res://Scenes/Towers/piercing_arrow.tscn")
 
 var building = true
 var can_place = false
@@ -23,7 +23,7 @@ func _physics_process(delta):
 				building = false
 				get_parent().tower_built()
 		else:
-			$Character.modulate = Color(1, 1, 1)
+			self.modulate = Color(1, 1, 1)
 func _on_turret_range_area_entered(area):
 	if area.is_in_group("Enemy"):
 		if building == false:

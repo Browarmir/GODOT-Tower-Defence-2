@@ -1,12 +1,13 @@
-Sprite2D
+Node2D
+Control
 Label
-Path2D
 TextureButton
 Timer
+Sprite2D
+Path2D
 GPUParticles2D
 NinePatchRect
 Button
-Node2D
 AnimationPlayer
 CollisionShape2D
 Area2D
@@ -14,7 +15,6 @@ CanvasLayer
 Marker2D
 Camera2D
 TileMap
-Control
 PathFollow2D
 ProgressBar
 VisibleOnScreenNotifier2D
