@@ -41,8 +41,8 @@ one_shot = true
 [node name="EnemyTimer" type="Timer" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(912, 315)
-zoom = Vector2(0.678, 0.678)
+position = Vector2(786, 310)
+zoom = Vector2(0.83, 0.83)
 
 [node name="GUI" type="CanvasLayer" parent="."]
 layer = 2
@@ -101,6 +101,7 @@ scale = Vector2(0.202728, 0.202729)
 texture = ExtResource("11_vbtc5")
 
 [node name="Label" type="Label" parent="GUI/Build Panel"]
+layout_mode = 0
 offset_left = 70.0
 offset_top = 24.0
 offset_right = 215.0

@@ -1,10 +1,11 @@
 extends Node2D
 
-var money = 50
+var money = 25
 var wave = 0
 var mobs_left = 0
 var mob1_left_to_spawn
 var mob2_left_to_spawn
+var selected_tower_cost
 var wave_mobs_1 = [5, 5, 10, 8, 9, 0]
 var wave_mobs_2 = [2, 4, 5, 6, 7, 0]
 var wave_speed = [0.5, 1, 0.5, 0.5, 0.3, 10]
@@ -30,7 +31,7 @@ func _process(delta):
 
 func tower_built():
 	building = false
-	money -= 25
+	money -= selected_tower_cost
 
 func _on_wave_timer_timeout():
 	mob1_left_to_spawn = wave_mobs_1[wave]
@@ -66,6 +67,7 @@ func _on_enemy_timer_timeout():
 func _on_button_pressed():
 	if building == false && money >= 25:
 		hide_build_menu()
+		selected_tower_cost = 25
 		instance = tower.instantiate()
 		add_child(instance)
 		last_tower = instance
@@ -79,9 +81,14 @@ func _on_gate_area_entered(area):
 func _on_build_green_pressed():
 	if building == false && money >= 50:
 		hide_build_menu()
+		selected_tower_cost = 50
 		instance = green_tower.instantiate()
 		add_child(instance)
 		last_tower = instance
+
+
+func _on_texture_button_3_pressed():
+	pass # Replace with function body.
 
 
 func _on_start_button_pressed():
@@ -105,5 +112,3 @@ func hide_build_menu():
 	$"GUI/Build Panel".visible = false
 
 
-func _on_texture_button_3_pressed():
-	pass # Replace with function body.

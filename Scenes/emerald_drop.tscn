@@ -24,6 +24,7 @@ linear_accel_max = -200.0
 color_ramp = SubResource("GradientTexture1D_sw886")
 
 [node name="EmeraldDrop" type="Node2D"]
+z_index = 4
 script = ExtResource("1_sl6tf")
 
 [node name="Emeralds" type="GPUParticles2D" parent="."]

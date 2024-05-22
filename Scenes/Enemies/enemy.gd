@@ -3,8 +3,9 @@ extends PathFollow2D
 
 var health = 100
 var max_health
-var speed = 125
+var speed = 50
 var value = 5
+var gate_damage = 5
 @onready var progress_bar = $ProgressBar
 @onready var game = get_parent().get_parent()
 var emeralds = preload("res://Scenes/emerald_drop.tscn")

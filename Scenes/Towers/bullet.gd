@@ -4,7 +4,7 @@ var move = Vector2.ZERO
 var speed = 25
 var look_vec = Vector2.ZERO
 var target
-var damage = 1
+var damage = 75
 
 func _ready():
 	if target != null:
