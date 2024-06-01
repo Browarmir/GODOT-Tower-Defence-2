@@ -12,7 +12,7 @@ func _process(delta):
 
 
 func _on_start_pressed():
-	get_tree().change_scene_to_file("res://Scenes/game.tscn")
+	get_tree().change_scene_to_file("res://Scenes/level_selection.tscn")
 
 
 func _on_options_button_down():

@@ -77,7 +77,7 @@ func _on_button_pressed():
 func _on_gate_area_entered(area):
 	if area.is_in_group("Enemy"):
 		player_health -= 10
-		area.get_parent().health -= 1000
+		area.get_parent().queue_free()
 
 func _on_build_green_pressed():
 	if building == false && money >= 50:
@@ -89,7 +89,7 @@ func _on_build_green_pressed():
 
 
 func _on_texture_button_3_pressed():
-	if building == false && money >= 25:
+	if building == false && money >= 75:
 		hide_build_menu()
 		selected_tower_cost = 75
 		instance = pillager_tower.instantiate()

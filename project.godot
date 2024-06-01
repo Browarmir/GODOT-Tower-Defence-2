@@ -15,6 +15,16 @@ run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SaveFile="*res://Scripts/save_file.gd"
+
+[display]
+
+window/size/resizable=false
+window/size/window_width_override=1152
+window/size/window_height_override=648
+
 [gui]
 
 theme/custom_font="res://Assets/Fonts/m5x7.ttf"
