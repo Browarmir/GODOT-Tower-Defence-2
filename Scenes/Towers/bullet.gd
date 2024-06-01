@@ -4,7 +4,7 @@ var move = Vector2.ZERO
 var speed = 25
 var look_vec = Vector2.ZERO
 var target
-var damage = 75
+var damage = 25
 
 func _ready():
 	if target != null:
@@ -25,7 +25,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 func _on_area_entered(area):
 	if area.is_in_group("Enemy"):
-		area.get_parent().health -= damage
+		area.get_parent().deal_damage(damage)
 		queue_free()
 #		if area.get_parent().health <= 0:
 #			get_parent().money  += 10

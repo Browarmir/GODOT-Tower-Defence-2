@@ -14,14 +14,7 @@ func _ready():
 	
 func _process(delta):
 	if health <= 0:
-		game.mobs_left -= 1
-		var b = emeralds.instantiate()
-		b.global_position = global_position
-		get_parent().get_parent().add_child(b)
-		b.emeralds.amount = value
-		b.emeralds.emitting = true
-		game.money += value
-		queue_free()
+		$AnimationPlayer.play("death_animation")
 		
 	progress_bar.value = health
 	if progress_bar.value < progress_bar.max_value:
@@ -33,4 +26,19 @@ func _physics_process(delta):
 	if progress >= 10000:
 		queue_free()
 
+func deal_damage(value):
+	$AnimationPlayer.play("hurt_animation")
+	health -= value
 
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "death_animation":
+		game.mobs_left -= 1
+		var b = emeralds.instantiate()
+		b.global_position = global_position
+		get_parent().get_parent().add_child(b)
+		b.emeralds.amount = value
+		b.emeralds.emitting = true
+		game.money += value
+		queue_free()

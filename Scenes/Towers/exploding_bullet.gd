@@ -5,7 +5,7 @@ var move = Vector2.ZERO
 var speed = 10
 var look_vec = Vector2.ZERO
 var target
-var damage = 10
+var damage = 50
 var overlapping = []
 var active = false
 var once_activated = false
@@ -56,7 +56,7 @@ func _on_timer_timeout():
 
 func _on_explosion_area_entered(area):
 	if area.is_in_group("Enemy"):
-		area.get_parent().health -= 50
+		area.get_parent().deal_damage(damage)
 
 
 func _on_qfree_timer_timeout():
