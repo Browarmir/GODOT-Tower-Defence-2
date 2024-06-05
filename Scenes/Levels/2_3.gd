@@ -1,14 +1,14 @@
 extends Node2D
 
-var money = 75
+var money = 50
 var wave = 0
 var mobs_left = 0
 var mob1_left_to_spawn
 var mob2_left_to_spawn
 var selected_tower_cost
-var wave_mobs_1 = [1, 1]
-var wave_mobs_2 = [1, 1]
-var wave_speed = [0.5, 1]
+var wave_mobs_1 = [5, 7, 10, 15,  20]
+var wave_mobs_2 = [0, 1, 3, 5, 10]
+var wave_speed = [0.8, 0.7, 0.6, 0.5, 0.4]
 var player_health = 100
 var last_tower
 var instance
