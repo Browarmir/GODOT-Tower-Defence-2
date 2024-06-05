@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbno080icjckd"]
+
+[ext_resource type="Texture2D" uid="uid://tmplylks7573" path="res://Assets/Sprites/button.png" id="1_m7ieo"]
+[ext_resource type="Script" path="res://Scenes/pause.gd" id="1_pm77h"]
+[ext_resource type="Texture2D" uid="uid://b25kxpyea87fi" path="res://Assets/Sprites/button_clicked.png" id="2_50yt6"]
+[ext_resource type="Texture2D" uid="uid://cmsbmfk1ehorf" path="res://Assets/Sprites/button_hover.png" id="3_o3du5"]
+
+[node name="pause" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_pm77h")
+
+[node name="pausemenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="pausemenu"]
+offset_left = -35.0
+offset_top = -35.0
+offset_right = 1216.0
+offset_bottom = 728.0
+color = Color(0, 0, 0, 0.545098)
+
+[node name="continue" type="TextureButton" parent="pausemenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 480.0
+offset_top = 276.0
+offset_right = 664.0
+offset_bottom = 316.0
+grow_horizontal = 2
+texture_normal = ExtResource("1_m7ieo")
+texture_pressed = ExtResource("2_50yt6")
+texture_hover = ExtResource("3_o3du5")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="pausemenu/continue"]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 11.0
+offset_right = 121.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 20
+text = "CONTINUE"
+
+[node name="quit" type="TextureButton" parent="pausemenu"]
+offset_left = 500.0
+offset_top = 316.0
+offset_right = 684.0
+offset_bottom = 356.0
+texture_normal = ExtResource("1_m7ieo")
+texture_pressed = ExtResource("2_50yt6")
+texture_hover = ExtResource("3_o3du5")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="pausemenu/quit"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 10.0
+offset_right = 158.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 20
+text = "QUIT TO MAIN MENU"
+
+[node name="pausebutton" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureButton" type="TextureButton" parent="pausebutton"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="pausemenu/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="pausemenu/quit" to="." method="_on_quit_pressed"]

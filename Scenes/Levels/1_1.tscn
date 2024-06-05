@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://ddvva1ix6g4lc"]
 
-[ext_resource type="Script" path="res://Scripts/game.gd" id="1_231xs"]
+[ext_resource type="Script" path="res://Scenes/Levels/1_1.gd" id="1_d8frn"]
 [ext_resource type="PackedScene" uid="uid://def5c66n47p5l" path="res://Scenes/tile_map.tscn" id="2_wc3tu"]
 [ext_resource type="Texture2D" uid="uid://tmplylks7573" path="res://Assets/Sprites/button.png" id="3_w4tsy"]
 [ext_resource type="Texture2D" uid="uid://b25kxpyea87fi" path="res://Assets/Sprites/button_clicked.png" id="4_oq6t4"]
@@ -25,7 +25,7 @@ _data = {
 point_count = 8
 
 [node name="1_1" type="Node2D"]
-script = ExtResource("1_231xs")
+script = ExtResource("1_d8frn")
 
 [node name="Gate" type="Area2D" parent="."]
 

@@ -6,9 +6,9 @@ var mobs_left = 0
 var mob1_left_to_spawn
 var mob2_left_to_spawn
 var selected_tower_cost
-var wave_mobs_1 = [5, 5, 10, 8, 9, 0]
-var wave_mobs_2 = [2, 4, 5, 6, 7, 0]
-var wave_speed = [0.5, 1, 0.5, 0.5, 0.3, 10]
+var wave_mobs_1 = [1, 1]
+var wave_mobs_2 = [1, 1]
+var wave_speed = [0.5, 1]
 var player_health = 100
 var last_tower
 var instance
