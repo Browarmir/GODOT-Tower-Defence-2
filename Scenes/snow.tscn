@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://smfrbapj8wi"]
+
+[ext_resource type="Texture2D" uid="uid://ttjduyy8g02h" path="res://Assets/Sprites/snowflake.png" id="1_8fm1y"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ddl0m"]
+emission_shape = 3
+emission_box_extents = Vector3(600, 1, 1)
+particle_flag_disable_z = true
+gravity = Vector3(0, 50, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+
+[node name="snow" type="Node2D"]
+z_index = 10
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(567, -350)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_ddl0m")
+texture = ExtResource("1_8fm1y")
+lifetime = 7.0
+preprocess = 20.0
+fixed_fps = 60
+visibility_rect = Rect2(-1000, -100, 2000, 2000)

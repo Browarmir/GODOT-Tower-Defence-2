@@ -27,6 +27,4 @@ func _on_area_entered(area):
 	if area.is_in_group("Enemy"):
 		area.get_parent().deal_damage(damage)
 		queue_free()
-#		if area.get_parent().health <= 0:
-#			get_parent().money  += 10
-#			area.get_parent().queue_free()
+

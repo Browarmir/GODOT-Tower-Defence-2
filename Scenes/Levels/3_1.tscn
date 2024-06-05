@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cutq2clhro8dp"]
+[gd_scene load_steps=21 format=3 uid="uid://cutq2clhro8dp"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/3_1.gd" id="1_wijqf"]
 [ext_resource type="PackedScene" uid="uid://def5c66n47p5l" path="res://Scenes/tile_map.tscn" id="2_puraj"]
@@ -14,15 +14,19 @@
 [ext_resource type="Texture2D" uid="uid://ytm1ca1mjq02" path="res://Assets/Textures/towers/pillager.png" id="12_hcw3f"]
 [ext_resource type="PackedScene" uid="uid://c4ka2cbgi7frr" path="res://Scenes/ui.tscn" id="13_6g1a5"]
 [ext_resource type="PackedScene" uid="uid://bpx78i5lhfon3" path="res://Scenes/platform.tscn" id="14_bihkr"]
+[ext_resource type="AudioStream" uid="uid://dpv56vo07etg2" path="res://Assets/SFX/Background/snow_level.mp3" id="15_k6ucw"]
+[ext_resource type="AudioStream" uid="uid://bll737jmi7u0e" path="res://Assets/SFX/SoundEffect/click_fixed.mp3" id="16_3qocu"]
+[ext_resource type="PackedScene" uid="uid://cbno080icjckd" path="res://Scenes/pause.tscn" id="17_27p1u"]
+[ext_resource type="PackedScene" uid="uid://smfrbapj8wi" path="res://Scenes/snow.tscn" id="18_5vlim"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etq7e"]
 size = Vector2(200, 343)
 
 [sub_resource type="Curve2D" id="Curve2D_31o1e"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 241, 826, 0, 0, 0, 0, 239, 398, 0, 0, 0, 0, 497, 399, 0, 0, 0, 0, 496, 176, 0, 0, 0, 0, 725, 176, 0, 0, 0, 0, 728, 539, 0, 0, 0, 0, 1001, 539, 0, 0, 0, 0, 999.368, 289.036, 0, 0, 0, 0, 1003, 175, 0, 0, 0, 0, 2031, 177)
+"points": PackedVector2Array(0, 0, 0, 0, 905, 803, 0, 0, 0, 0, 913, 573, 0, 0, 0, 0, 976, 567, 0, 0, 0, 0, 974, 442, 0, 0, 0, 0, 916, 440, 0, 0, 0, 0, 907, 208, 0, 0, 0, 0, 1111, 210, 0, 0, 0, 0, 1107, 275, 0, 0, 0, 0, 1228, 277, 0, 0, 0, 0, 1231, 215, 0, 0, 0, 0, 1357, 213, 0, 0, 0, 0, 1359, 280, 0, 0, 0, 0, 1482, 279, 0, 0, 0, 0, 1493, 213, 0, 0, 0, 0, 1682, 212, 0, 0, 0, 0, 1677, 435, 0, 0, 0, 0, 1620, 437, 0, 0, 0, 0, 1619, 565, 0, 0, 0, 0, 1683, 572, 0, 0, 0, 0, 1686, 782)
 }
-point_count = 10
+point_count = 20
 
 [node name="3_1" type="Node2D"]
 script = ExtResource("1_wijqf")
@@ -30,7 +34,7 @@ script = ExtResource("1_wijqf")
 [node name="Gate" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gate"]
-position = Vector2(1952, 158)
+position = Vector2(979, 833)
 shape = SubResource("RectangleShape2D_etq7e")
 
 [node name="TileMap" parent="." instance=ExtResource("2_puraj")]
@@ -340,6 +344,16 @@ position = Vector2(337, 207)
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(-706, -71)
 curve = SubResource("Curve2D_31o1e")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_k6ucw")
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_3qocu")
+
+[node name="pause" parent="." instance=ExtResource("17_27p1u")]
+
+[node name="snow" parent="." instance=ExtResource("18_5vlim")]
 
 [connection signal="area_entered" from="Gate" to="." method="_on_gate_area_entered" flags=18]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout" flags=18]

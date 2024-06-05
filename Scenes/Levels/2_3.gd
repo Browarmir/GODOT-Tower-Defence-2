@@ -21,6 +21,7 @@ var building = false
 var menu_visible = false
 
 func _ready():
+	$Music.play()
 	$GUI/StartButton.visible = true
 func _process(delta):
 	if building == true:
@@ -62,10 +63,12 @@ func _on_enemy_timer_timeout():
 		if wave < len(wave_mobs_1):
 			$GUI/StartButton.visible = true
 		if wave >= len(wave_mobs_1):
+			SaveFile.lvl_2_3_completed = true
 			get_tree().change_scene_to_file("res://Scenes/win_scene.tscn")
 
 
 func _on_button_pressed():
+	$Click.play()
 	if building == false && money >= 25:
 		hide_build_menu()
 		selected_tower_cost = 25
@@ -80,6 +83,7 @@ func _on_gate_area_entered(area):
 		area.get_parent().queue_free()
 
 func _on_build_green_pressed():
+	$Click.play()
 	if building == false && money >= 50:
 		hide_build_menu()
 		selected_tower_cost = 50
@@ -89,6 +93,7 @@ func _on_build_green_pressed():
 
 
 func _on_texture_button_3_pressed():
+	$Click.play()
 	if building == false && money >= 75:
 		hide_build_menu()
 		selected_tower_cost = 75
@@ -98,12 +103,13 @@ func _on_texture_button_3_pressed():
 
 
 func _on_start_button_pressed():
-
+	$Click.play()
 	$GUI/StartButton.visible = false
 	$WaveTimer.start()
 
 
 func _on_show_build_pressed():
+	$Click.play()
 	if menu_visible == false:
 		show_build_menu()
 	else:

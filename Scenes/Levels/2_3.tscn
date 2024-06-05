@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bvmxnq0q2f5l4"]
+[gd_scene load_steps=20 format=3 uid="uid://bvmxnq0q2f5l4"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/2_3.gd" id="1_e7w0s"]
 [ext_resource type="PackedScene" uid="uid://def5c66n47p5l" path="res://Scenes/tile_map.tscn" id="2_p0iu6"]
@@ -14,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://ytm1ca1mjq02" path="res://Assets/Textures/towers/pillager.png" id="12_334wi"]
 [ext_resource type="PackedScene" uid="uid://c4ka2cbgi7frr" path="res://Scenes/ui.tscn" id="13_lfgx1"]
 [ext_resource type="PackedScene" uid="uid://bpx78i5lhfon3" path="res://Scenes/platform.tscn" id="14_5iyeu"]
+[ext_resource type="AudioStream" uid="uid://bw76x34rykjx0" path="res://Assets/SFX/Background/desert_level.mp3" id="15_pj5cy"]
+[ext_resource type="AudioStream" uid="uid://bll737jmi7u0e" path="res://Assets/SFX/SoundEffect/click_fixed.mp3" id="16_obbyx"]
+[ext_resource type="PackedScene" uid="uid://cbno080icjckd" path="res://Scenes/pause.tscn" id="17_de2ex"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etq7e"]
 size = Vector2(200, 343)
@@ -30,7 +33,7 @@ script = ExtResource("1_e7w0s")
 [node name="Gate" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gate"]
-position = Vector2(1952, 158)
+position = Vector2(1295, 366)
 shape = SubResource("RectangleShape2D_etq7e")
 
 [node name="TileMap" parent="." instance=ExtResource("2_p0iu6")]
@@ -339,6 +342,14 @@ position = Vector2(559, 501)
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_31o1e")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_pj5cy")
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_obbyx")
+
+[node name="pause" parent="." instance=ExtResource("17_de2ex")]
 
 [connection signal="area_entered" from="Gate" to="." method="_on_gate_area_entered" flags=18]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout" flags=18]

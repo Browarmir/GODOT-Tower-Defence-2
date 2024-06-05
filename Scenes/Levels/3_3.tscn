@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cj2oc2a3v52th"]
+[gd_scene load_steps=21 format=3 uid="uid://cj2oc2a3v52th"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/3_3.gd" id="1_dr5kt"]
 [ext_resource type="PackedScene" uid="uid://def5c66n47p5l" path="res://Scenes/tile_map.tscn" id="2_oew5q"]
@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://ytm1ca1mjq02" path="res://Assets/Textures/towers/pillager.png" id="12_2i42x"]
 [ext_resource type="PackedScene" uid="uid://c4ka2cbgi7frr" path="res://Scenes/ui.tscn" id="13_dygpn"]
 [ext_resource type="PackedScene" uid="uid://bpx78i5lhfon3" path="res://Scenes/platform.tscn" id="14_novxb"]
+[ext_resource type="AudioStream" uid="uid://dv6ubsbfip7ok" path="res://Assets/SFX/Background/plains_level.mp3" id="15_8rm8p"]
+[ext_resource type="AudioStream" uid="uid://dpv56vo07etg2" path="res://Assets/SFX/Background/snow_level.mp3" id="16_p1pfu"]
+[ext_resource type="PackedScene" uid="uid://cbno080icjckd" path="res://Scenes/pause.tscn" id="17_3bqmg"]
+[ext_resource type="PackedScene" uid="uid://smfrbapj8wi" path="res://Scenes/snow.tscn" id="18_36gah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etq7e"]
 size = Vector2(75, 43.5)
@@ -339,6 +343,16 @@ position = Vector2(1106, 579)
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_31o1e")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_8rm8p")
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_p1pfu")
+
+[node name="pause" parent="." instance=ExtResource("17_3bqmg")]
+
+[node name="snow" parent="." instance=ExtResource("18_36gah")]
 
 [connection signal="area_entered" from="Gate" to="." method="_on_gate_area_entered" flags=18]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout" flags=18]

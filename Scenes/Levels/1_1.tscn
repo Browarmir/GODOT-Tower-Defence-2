@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ddvva1ix6g4lc"]
+[gd_scene load_steps=20 format=3 uid="uid://ddvva1ix6g4lc"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/1_1.gd" id="1_d8frn"]
 [ext_resource type="PackedScene" uid="uid://def5c66n47p5l" path="res://Scenes/tile_map.tscn" id="2_wc3tu"]
@@ -14,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://ytm1ca1mjq02" path="res://Assets/Textures/towers/pillager.png" id="12_6ydd2"]
 [ext_resource type="PackedScene" uid="uid://c4ka2cbgi7frr" path="res://Scenes/ui.tscn" id="13_yhmc6"]
 [ext_resource type="PackedScene" uid="uid://bpx78i5lhfon3" path="res://Scenes/platform.tscn" id="14_k74iw"]
+[ext_resource type="AudioStream" uid="uid://dv6ubsbfip7ok" path="res://Assets/SFX/Background/plains_level.mp3" id="15_2b7r0"]
+[ext_resource type="AudioStream" uid="uid://bll737jmi7u0e" path="res://Assets/SFX/SoundEffect/click_fixed.mp3" id="16_xku7h"]
+[ext_resource type="PackedScene" uid="uid://cbno080icjckd" path="res://Scenes/pause.tscn" id="17_b31qc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etq7e"]
 size = Vector2(200, 343)
@@ -336,6 +339,14 @@ position = Vector2(880, 240)
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_isxko")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_2b7r0")
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_xku7h")
+
+[node name="pause" parent="." instance=ExtResource("17_b31qc")]
 
 [connection signal="area_entered" from="Gate" to="." method="_on_gate_area_entered" flags=18]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout" flags=18]

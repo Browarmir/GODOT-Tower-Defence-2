@@ -24,6 +24,7 @@ func _physics_process(delta):
 				get_parent().tower_built()
 		else:
 			$Character.modulate = Color(1, 1, 1)
+
 func _on_turret_range_area_entered(area):
 	if area.is_in_group("Enemy"):
 		if building == false:

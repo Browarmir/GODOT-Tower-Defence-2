@@ -23,6 +23,8 @@ var menu_visible = false
 func _ready():
 	$Music.play()
 	$GUI/StartButton.visible = true
+
+
 func _process(delta):
 	if building == true:
 		if Input.is_action_just_pressed("R_Mouse"):
@@ -63,7 +65,7 @@ func _on_enemy_timer_timeout():
 		if wave < len(wave_mobs_1):
 			$GUI/StartButton.visible = true
 		if wave >= len(wave_mobs_1):
-			SaveFile.lvl_1_1_completed = true
+			SaveFile.lvl_1_2_completed = true
 			get_tree().change_scene_to_file("res://Scenes/win_scene.tscn")
 
 

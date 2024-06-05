@@ -1,13 +1,13 @@
-AudioStreamPlayer2D
-Timer
-GPUParticles2D
 ColorRect
 AnimationPlayer
+GPUParticles2D
+Label
+AudioStreamPlayer2D
+Timer
 Sprite2D
 Camera2D
 Path2D
 TextureButton
-Label
 Node2D
 TileMap
 Control

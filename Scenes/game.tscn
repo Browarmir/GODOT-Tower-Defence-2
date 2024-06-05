@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dk8g1ednt1lxk"]
+[gd_scene load_steps=20 format=3 uid="uid://dk8g1ednt1lxk"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_gfnu0"]
 [ext_resource type="PackedScene" uid="uid://def5c66n47p5l" path="res://Scenes/tile_map.tscn" id="2_vm1hf"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bvoo48y1xiihx" path="res://Assets/Sprites/billy_jean.png" id="11_vbtc5"]
 [ext_resource type="AudioStream" uid="uid://dv6ubsbfip7ok" path="res://Assets/SFX/Background/plains_level.mp3" id="15_ucs7u"]
 [ext_resource type="AudioStream" uid="uid://bll737jmi7u0e" path="res://Assets/SFX/SoundEffect/click_fixed.mp3" id="16_tua7l"]
+[ext_resource type="PackedScene" uid="uid://cbno080icjckd" path="res://Scenes/pause.tscn" id="17_i51v3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etq7e"]
 size = Vector2(200, 343)
@@ -27,6 +28,7 @@ _data = {
 point_count = 9
 
 [node name="Game" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_gfnu0")
 
 [node name="Gate" type="Area2D" parent="."]
@@ -347,6 +349,8 @@ stream = ExtResource("15_ucs7u")
 
 [node name="Click" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_tua7l")
+
+[node name="pause" parent="." instance=ExtResource("17_i51v3")]
 
 [connection signal="area_entered" from="Gate" to="." method="_on_gate_area_entered"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cdfeur5kp4lks"]
+[gd_scene load_steps=20 format=3 uid="uid://cdfeur5kp4lks"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/1_3.gd" id="1_rx5nr"]
 [ext_resource type="PackedScene" uid="uid://def5c66n47p5l" path="res://Scenes/tile_map.tscn" id="2_n3isc"]
@@ -14,15 +14,18 @@
 [ext_resource type="Texture2D" uid="uid://ytm1ca1mjq02" path="res://Assets/Textures/towers/pillager.png" id="12_nus0h"]
 [ext_resource type="PackedScene" uid="uid://c4ka2cbgi7frr" path="res://Scenes/ui.tscn" id="13_y6ha2"]
 [ext_resource type="PackedScene" uid="uid://bpx78i5lhfon3" path="res://Scenes/platform.tscn" id="14_l8fvc"]
+[ext_resource type="AudioStream" uid="uid://dv6ubsbfip7ok" path="res://Assets/SFX/Background/plains_level.mp3" id="15_kj6id"]
+[ext_resource type="AudioStream" uid="uid://bll737jmi7u0e" path="res://Assets/SFX/SoundEffect/click_fixed.mp3" id="16_3j0uk"]
+[ext_resource type="PackedScene" uid="uid://cbno080icjckd" path="res://Scenes/pause.tscn" id="17_jpa2v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etq7e"]
 size = Vector2(200, 343)
 
 [sub_resource type="Curve2D" id="Curve2D_31o1e"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 241, 826, 0, 0, 0, 0, 239, 398, 0, 0, 0, 0, 497, 399, 0, 0, 0, 0, 496, 176, 0, 0, 0, 0, 725, 176, 0, 0, 0, 0, 728, 539, 0, 0, 0, 0, 1001, 539, 0, 0, 0, 0, 1003, 175, 0, 0, 0, 0, 2031, 177)
+"points": PackedVector2Array(0, 0, 0, 0, 241, 826, 0, 0, 0, 0, 239, 398, 0, 0, 0, 0, 497, 399, 0, 0, 0, 0, 496.575, 299.102, 0, 0, 0, 0, 496, 176, 0, 0, 0, 0, 725, 176, 0, 0, 0, 0, 728, 539, 0, 0, 0, 0, 1001, 539, 0, 0, 0, 0, 1003, 175, 0, 0, 0, 0, 2031, 177)
 }
-point_count = 9
+point_count = 10
 
 [node name="1_3" type="Node2D"]
 script = ExtResource("1_rx5nr")
@@ -30,7 +33,7 @@ script = ExtResource("1_rx5nr")
 [node name="Gate" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gate"]
-position = Vector2(1952, 158)
+position = Vector2(1281, 163)
 shape = SubResource("RectangleShape2D_etq7e")
 
 [node name="TileMap" parent="." instance=ExtResource("2_n3isc")]
@@ -338,7 +341,16 @@ position = Vector2(1592, 116)
 position = Vector2(1594, 235)
 
 [node name="Path2D" type="Path2D" parent="."]
+position = Vector2(1, -9)
 curve = SubResource("Curve2D_31o1e")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_kj6id")
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_3j0uk")
+
+[node name="pause" parent="." instance=ExtResource("17_jpa2v")]
 
 [connection signal="area_entered" from="Gate" to="." method="_on_gate_area_entered" flags=18]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout" flags=18]

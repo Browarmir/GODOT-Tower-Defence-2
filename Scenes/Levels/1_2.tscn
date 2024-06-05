@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://h0fs84trqyje"]
+[gd_scene load_steps=20 format=3 uid="uid://h0fs84trqyje"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_axpuo"]
 [ext_resource type="PackedScene" uid="uid://def5c66n47p5l" path="res://Scenes/tile_map.tscn" id="2_ai04x"]
@@ -14,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://ytm1ca1mjq02" path="res://Assets/Textures/towers/pillager.png" id="12_sjn2q"]
 [ext_resource type="PackedScene" uid="uid://c4ka2cbgi7frr" path="res://Scenes/ui.tscn" id="13_6t5k7"]
 [ext_resource type="PackedScene" uid="uid://bpx78i5lhfon3" path="res://Scenes/platform.tscn" id="14_f83w1"]
+[ext_resource type="AudioStream" uid="uid://dv6ubsbfip7ok" path="res://Assets/SFX/Background/plains_level.mp3" id="15_rdvrt"]
+[ext_resource type="AudioStream" uid="uid://bll737jmi7u0e" path="res://Assets/SFX/SoundEffect/click_fixed.mp3" id="16_nxe4m"]
+[ext_resource type="PackedScene" uid="uid://cbno080icjckd" path="res://Scenes/pause.tscn" id="17_omdda"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etq7e"]
 size = Vector2(200, 343)
@@ -30,7 +33,7 @@ script = ExtResource("1_axpuo")
 [node name="Gate" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gate"]
-position = Vector2(1952, 158)
+position = Vector2(1294, 428)
 shape = SubResource("RectangleShape2D_etq7e")
 
 [node name="TileMap" parent="." instance=ExtResource("2_ai04x")]
@@ -323,6 +326,14 @@ position = Vector2(974, 115)
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_31o1e")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_rdvrt")
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_nxe4m")
+
+[node name="pause" parent="." instance=ExtResource("17_omdda")]
 
 [connection signal="area_entered" from="Gate" to="." method="_on_gate_area_entered" flags=18]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout" flags=18]

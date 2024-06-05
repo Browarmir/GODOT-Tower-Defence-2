@@ -6,21 +6,24 @@ var mobs_left = 0
 var mob1_left_to_spawn
 var mob2_left_to_spawn
 var selected_tower_cost
-var wave_mobs_1 = [1, 1]
-var wave_mobs_2 = [1, 1]
-var wave_speed = [0.5, 1]
+var wave_mobs_1 = [20, 1]
+var wave_mobs_2 = [20, 1]
+var wave_speed = [0.3, 1]
 var player_health = 100
 var last_tower
 var instance
+
 var enemy = preload("res://Scenes/Enemies/enemy.tscn")
 var enemy2 = preload("res://Scenes/Enemies/enemy_2.tscn")
 var tower = preload("res://Scenes/Towers/red_tower.tscn")
 var green_tower = preload("res://Scenes/Towers/green_tower.tscn")
 var pillager_tower = preload("res://Scenes/Towers/pillager_tower.tscn")
+
 var building = false
 var menu_visible = false
 
 func _ready():
+	$Music.play()
 	$GUI/StartButton.visible = true
 func _process(delta):
 	if building == true:
@@ -62,10 +65,12 @@ func _on_enemy_timer_timeout():
 		if wave < len(wave_mobs_1):
 			$GUI/StartButton.visible = true
 		if wave >= len(wave_mobs_1):
+			SaveFile.lvl_1_1_completed = true
 			get_tree().change_scene_to_file("res://Scenes/win_scene.tscn")
 
 
 func _on_button_pressed():
+	$Click.play()
 	if building == false && money >= 25:
 		hide_build_menu()
 		selected_tower_cost = 25
@@ -80,6 +85,7 @@ func _on_gate_area_entered(area):
 		area.get_parent().queue_free()
 
 func _on_build_green_pressed():
+	$Click.play()
 	if building == false && money >= 50:
 		hide_build_menu()
 		selected_tower_cost = 50
@@ -89,6 +95,7 @@ func _on_build_green_pressed():
 
 
 func _on_texture_button_3_pressed():
+	$Click.play()
 	if building == false && money >= 75:
 		hide_build_menu()
 		selected_tower_cost = 75
@@ -98,12 +105,13 @@ func _on_texture_button_3_pressed():
 
 
 func _on_start_button_pressed():
-
+	$Click.play()
 	$GUI/StartButton.visible = false
 	$WaveTimer.start()
 
 
 func _on_show_build_pressed():
+	$Click.play()
 	if menu_visible == false:
 		show_build_menu()
 	else:

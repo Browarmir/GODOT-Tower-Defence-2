@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://bll737jmi7u0e" path="res://Assets/SFX/SoundEffect/click_fixed.mp3" id="8_68r4b"]
 
 [node name="level_selection" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_p5qhh")
 
 [node name="TileMap" parent="." instance=ExtResource("1_w5o3w")]
@@ -47,7 +48,7 @@ theme_override_font_sizes/font_size = 30
 text = "Lvl 1-1
 "
 
-[node name="Completion" type="Sprite2D" parent="1-x buttons/1_1"]
+[node name="Completion11" type="Sprite2D" parent="1-x buttons/1_1"]
 visible = false
 position = Vector2(79, 77)
 scale = Vector2(3.271, 3.271)
@@ -82,7 +83,7 @@ theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 30
 text = "Lvl 1-2"
 
-[node name="Completion" type="Sprite2D" parent="1-x buttons/1_2"]
+[node name="Completion12" type="Sprite2D" parent="1-x buttons/1_2"]
 visible = false
 position = Vector2(79, 77)
 scale = Vector2(3.271, 3.271)
@@ -117,7 +118,7 @@ theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 30
 text = "Lvl 1-3"
 
-[node name="Completion" type="Sprite2D" parent="1-x buttons/1_3"]
+[node name="Completion13" type="Sprite2D" parent="1-x buttons/1_3"]
 visible = false
 position = Vector2(79, 77)
 scale = Vector2(3.271, 3.271)

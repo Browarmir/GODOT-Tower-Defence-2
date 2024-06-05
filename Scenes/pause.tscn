@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbno080icjckd"]
+[gd_scene load_steps=6 format=3 uid="uid://cbno080icjckd"]
 
 [ext_resource type="Texture2D" uid="uid://tmplylks7573" path="res://Assets/Sprites/button.png" id="1_m7ieo"]
 [ext_resource type="Script" path="res://Scenes/pause.gd" id="1_pm77h"]
 [ext_resource type="Texture2D" uid="uid://b25kxpyea87fi" path="res://Assets/Sprites/button_clicked.png" id="2_50yt6"]
 [ext_resource type="Texture2D" uid="uid://cmsbmfk1ehorf" path="res://Assets/Sprites/button_hover.png" id="3_o3du5"]
+[ext_resource type="AudioStream" uid="uid://bll737jmi7u0e" path="res://Assets/SFX/SoundEffect/click_fixed.mp3" id="5_r0o4i"]
 
 [node name="pause" type="Node2D"]
 process_mode = 3
@@ -16,6 +17,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ColorRect" type="ColorRect" parent="pausemenu"]
+layout_mode = 0
 offset_left = -35.0
 offset_top = -35.0
 offset_right = 1216.0
@@ -47,6 +49,7 @@ theme_override_font_sizes/font_size = 20
 text = "CONTINUE"
 
 [node name="quit" type="TextureButton" parent="pausemenu"]
+layout_mode = 0
 offset_left = 500.0
 offset_top = 316.0
 offset_right = 684.0
@@ -71,10 +74,29 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureButton" type="TextureButton" parent="pausebutton"]
+[node name="pause button" type="TextureButton" parent="pausebutton"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 996.0
+offset_top = 25.0
+offset_right = 1131.0
+offset_bottom = 66.0
+texture_normal = ExtResource("1_m7ieo")
+texture_pressed = ExtResource("2_50yt6")
+texture_hover = ExtResource("3_o3du5")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="pausebutton/pause button"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 6.0
+offset_right = 94.0
+offset_bottom = 33.0
+theme_override_font_sizes/font_size = 30
+text = "PAUSE"
+
+[node name="click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_r0o4i")
 
 [connection signal="pressed" from="pausemenu/continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="pausemenu/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="pausebutton/pause button" to="." method="_on_pause_button_pressed"]

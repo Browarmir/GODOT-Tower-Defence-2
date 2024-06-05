@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cavqvlsa7lfm7"]
+[gd_scene load_steps=20 format=3 uid="uid://cavqvlsa7lfm7"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/2_1.gd" id="1_7bu0f"]
 [ext_resource type="PackedScene" uid="uid://def5c66n47p5l" path="res://Scenes/tile_map.tscn" id="2_5k5ro"]
@@ -14,13 +14,16 @@
 [ext_resource type="Texture2D" uid="uid://ytm1ca1mjq02" path="res://Assets/Textures/towers/pillager.png" id="12_gmm4c"]
 [ext_resource type="PackedScene" uid="uid://c4ka2cbgi7frr" path="res://Scenes/ui.tscn" id="13_4rsoc"]
 [ext_resource type="PackedScene" uid="uid://bpx78i5lhfon3" path="res://Scenes/platform.tscn" id="14_mjom2"]
+[ext_resource type="AudioStream" uid="uid://bw76x34rykjx0" path="res://Assets/SFX/Background/desert_level.mp3" id="15_uc55v"]
+[ext_resource type="AudioStream" uid="uid://bll737jmi7u0e" path="res://Assets/SFX/SoundEffect/click_fixed.mp3" id="16_3pqos"]
+[ext_resource type="PackedScene" uid="uid://cbno080icjckd" path="res://Scenes/pause.tscn" id="17_4qnu8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etq7e"]
 size = Vector2(200, 343)
 
 [sub_resource type="Curve2D" id="Curve2D_31o1e"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 241, 826, 0, 0, 0, 0, 239, 398, 0, 0, 0, 0, 497, 399, 0, 0, 0, 0, 496, 176, 0, 0, 0, 0, 725, 176, 0, 0, 0, 0, 728, 539, 0, 0, 0, 0, 1001, 539, 0, 0, 0, 0, 1003, 175, 0, 0, 0, 0, 2031, 177)
+"points": PackedVector2Array(0, 0, 0, 0, 20, 430, 0, 0, 0, 0, 1038, 431, 0, 0, 0, 0, 1040, 273, 0, 0, 0, 0, 498, 273, 0, 0, 0, 0, 498, 145, 0, 0, 0, 0, 719, 143, 0, 0, 0, 0, 721, -171, 0, 0, 0, 0, 779, -172, 0, 0, 0, 0, 872, -188)
 }
 point_count = 9
 
@@ -33,7 +36,7 @@ layer_0/tile_data = PackedInt32Array(0, 196610, 3, -131074, 196610, 3, -65538, 1
 [node name="Gate" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gate"]
-position = Vector2(1952, 158)
+position = Vector2(731, -202)
 shape = SubResource("RectangleShape2D_etq7e")
 
 [node name="WaveTimer" type="Timer" parent="."]
@@ -339,6 +342,15 @@ position = Vector2(1594, 235)
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_31o1e")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_uc55v")
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_3pqos")
+
+[node name="pause" parent="." instance=ExtResource("17_4qnu8")]
+visible = false
 
 [connection signal="area_entered" from="Gate" to="." method="_on_gate_area_entered" flags=18]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout" flags=18]
