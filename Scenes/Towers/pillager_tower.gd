@@ -10,6 +10,9 @@ var can_place = false
 
 var current_enemy
 
+func _ready():
+	$SpawnSFX.play()
+
 func _physics_process(delta):
 	if building == false:
 		if enemies != []:
@@ -41,6 +44,7 @@ func _on_shoot_timer_timeout():
 		if current_enemy:
 			if enemies:
 				if current_enemy == enemies[0]:
+					$SFX.play()
 					var b = bullet.instantiate()
 					b.global_position = $WeaponArea/SpawnPoint.global_position
 					b.target = current_enemy

@@ -12,6 +12,7 @@ var once_activated = false
 var bubbles = preload("res://Scenes/Towers/potion_explosion.tscn")
 @onready var explosion_range = $Explosion/CollisionShape2D
 func _ready():
+	$SFX.play()
 	explosion_range.disabled = true
 	$CollisionShape2D.shape.radius = 8
 	if target != null:

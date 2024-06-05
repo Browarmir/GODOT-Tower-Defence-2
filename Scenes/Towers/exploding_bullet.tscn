@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0i0ueaxupwvs"]
+[gd_scene load_steps=6 format=3 uid="uid://d0i0ueaxupwvs"]
 
 [ext_resource type="Script" path="res://Scenes/Towers/exploding_bullet.gd" id="1_3k85w"]
 [ext_resource type="Texture2D" uid="uid://co87cmyrel6f" path="res://Assets/Textures/items/damage_potion.png" id="2_qsgvb"]
+[ext_resource type="AudioStream" uid="uid://bff23g7mkio0l" path="res://Assets/SFX/SoundEffect/potion_throw.mp3" id="3_kw8bp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o57ke"]
 radius = 21.0
@@ -35,6 +36,9 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion"]
 shape = SubResource("CircleShape2D_ulbu8")
 disabled = true
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kw8bp")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

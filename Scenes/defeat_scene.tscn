@@ -1,10 +1,27 @@
-[gd_scene format=3 uid="uid://bw1x0yp6t0hmr"]
+[gd_scene load_steps=4 format=3 uid="uid://bw1x0yp6t0hmr"]
+
+[ext_resource type="Script" path="res://Scenes/defeat_scene.gd" id="1_h5ctw"]
+[ext_resource type="AudioStream" uid="uid://bcdu8ar1l4w7w" path="res://Assets/SFX/SoundEffect/Cave17.mp3" id="2_xwd7s"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gvgev"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 150.0
+emission_ring_inner_radius = 150.0
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.1
+scale_min = 10.0
+scale_max = 10.0
 
 [node name="DefeatScene" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_h5ctw")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -18,5 +35,27 @@ offset_left = 419.0
 offset_top = 235.0
 offset_right = 727.0
 offset_bottom = 321.0
+scale = Vector2(0.921419, 0.818684)
 theme_override_font_sizes/font_size = 60
-text = "YOU LOST!"
+text = "   
+   YOU LOST!"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(564.688, 297.966)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_gvgev")
+lifetime = 50.0
+preprocess = 50.0
+trail_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(590.978, 250)
+stream = ExtResource("2_xwd7s")
+volume_db = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

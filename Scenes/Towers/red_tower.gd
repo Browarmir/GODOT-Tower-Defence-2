@@ -41,6 +41,7 @@ func _on_shoot_timer_timeout():
 		if current_enemy:
 			if enemies:
 				if current_enemy == enemies[0]:
+					$SFX.play()
 					var b = bullet.instantiate()
 					b.global_position = $WeaponArea/SpawnPoint.global_position
 					b.target = current_enemy

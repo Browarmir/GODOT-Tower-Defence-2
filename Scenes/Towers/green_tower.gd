@@ -10,6 +10,9 @@ var can_place = false
 
 var current_enemy
 
+func _ready():
+	$SFX.play()
+
 func _physics_process(delta):
 	if building == false:
 		if enemies != []:

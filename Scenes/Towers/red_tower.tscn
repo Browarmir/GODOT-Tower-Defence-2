@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dn4y8j8jdtahk"]
+[gd_scene load_steps=11 format=3 uid="uid://dn4y8j8jdtahk"]
 
 [ext_resource type="Script" path="res://Scenes/Towers/red_tower.gd" id="1_djce4"]
 [ext_resource type="Texture2D" uid="uid://dykq6cpwt4m65" path="res://Assets/Textures/towers/steve.png" id="2_odo8c"]
 [ext_resource type="Texture2D" uid="uid://dh0qa43buwf6o" path="res://Assets/Textures/items/Bow_pulling_sheet.png" id="3_lungm"]
 [ext_resource type="Texture2D" uid="uid://ctyacmhsh1ojs" path="res://Assets/Textures/items/bow_pulling_2.png" id="3_urkm0"]
+[ext_resource type="AudioStream" uid="uid://fmrgdlocj4sj" path="res://Assets/SFX/SoundEffect/bow_shot.mp3" id="5_qpabx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lcrmh"]
 radius = 227.0
@@ -161,6 +162,10 @@ autostart = true
 libraries = {
 "": SubResource("AnimationLibrary_i6tur")
 }
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_qpabx")
+volume_db = -5.0
 
 [connection signal="area_entered" from="TurretRange" to="." method="_on_turret_range_area_entered"]
 [connection signal="area_exited" from="TurretRange" to="." method="_on_turret_range_area_exited"]

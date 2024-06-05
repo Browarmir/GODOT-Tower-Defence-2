@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dk8g1ednt1lxk"]
+[gd_scene load_steps=19 format=3 uid="uid://dk8g1ednt1lxk"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_gfnu0"]
 [ext_resource type="PackedScene" uid="uid://def5c66n47p5l" path="res://Scenes/tile_map.tscn" id="2_vm1hf"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://cahew0iudjljp" path="res://Assets/Textures/towers/villager.png" id="10_e163t"]
 [ext_resource type="Texture2D" uid="uid://dgv6oeed1udia" path="res://Assets/Sprites/emerald.png" id="10_hdts4"]
 [ext_resource type="Texture2D" uid="uid://bvoo48y1xiihx" path="res://Assets/Sprites/billy_jean.png" id="11_vbtc5"]
+[ext_resource type="AudioStream" uid="uid://dv6ubsbfip7ok" path="res://Assets/SFX/Background/plains_level.mp3" id="15_ucs7u"]
+[ext_resource type="AudioStream" uid="uid://bll737jmi7u0e" path="res://Assets/SFX/SoundEffect/click_fixed.mp3" id="16_tua7l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etq7e"]
 size = Vector2(200, 343)
@@ -40,10 +42,6 @@ layer_0/tile_data = PackedInt32Array(0, 196610, 0, 65536, 196610, 0, 131072, 196
 one_shot = true
 
 [node name="EnemyTimer" type="Timer" parent="."]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(786, 310)
-zoom = Vector2(0.83, 0.83)
 
 [node name="GUI" type="CanvasLayer" parent="."]
 layer = 2
@@ -343,6 +341,12 @@ position = Vector2(1594, 235)
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_31o1e")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_ucs7u")
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_tua7l")
 
 [connection signal="area_entered" from="Gate" to="." method="_on_gate_area_entered"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

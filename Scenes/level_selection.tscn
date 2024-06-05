@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfuwrqgsk6e6"]
+[gd_scene load_steps=9 format=3 uid="uid://cfuwrqgsk6e6"]
 
 [ext_resource type="Script" path="res://Scenes/level_selection.gd" id="1_p5qhh"]
 [ext_resource type="PackedScene" uid="uid://def5c66n47p5l" path="res://Scenes/tile_map.tscn" id="1_w5o3w"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cmsbmfk1ehorf" path="res://Assets/Sprites/button_hover.png" id="4_4jsjj"]
 [ext_resource type="Texture2D" uid="uid://cnkwxhu1ocakx" path="res://Assets/Sprites/check.png" id="6_3opbw"]
 [ext_resource type="Texture2D" uid="uid://b5n683g5jd4xq" path="res://Assets/Sprites/arrow.png" id="7_hx0nn"]
+[ext_resource type="AudioStream" uid="uid://bll737jmi7u0e" path="res://Assets/SFX/SoundEffect/click_fixed.mp3" id="8_68r4b"]
 
 [node name="level_selection" type="Node2D"]
 script = ExtResource("1_p5qhh")
@@ -701,6 +702,9 @@ stretch_mode = 5
 position = Vector2(46, 123)
 scale = Vector2(3.34375, 3.49927)
 texture = ExtResource("7_hx0nn")
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_68r4b")
 
 [connection signal="pressed" from="1-x buttons/1_1" to="." method="_on_1_1_pressed"]
 [connection signal="pressed" from="1-x buttons/1_2" to="." method="_on_1_2_pressed"]

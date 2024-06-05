@@ -48,40 +48,60 @@ func _ready():
 
 
 func _on_1_1_pressed():
+	$Click.play()
+	await $Click.finished
 	get_tree().change_scene_to_file("res://Scenes/level_selection.tscn")
 
 
 func _on_1_2_pressed():
+	$Click.play()
+	await $Click.finished
 	get_tree().change_scene_to_file("res://Scenes/level_selection.tscn")
 
 
 func _on_1_3_pressed():
+	$Click.play()
+	await $Click.finished
 	get_tree().change_scene_to_file("res://Scenes/level_selection.tscn")
 
 
 func _on_2_1_button_down():
+	$Click.play()
+	await $Click.finished
 	get_tree().change_scene_to_file("res://Scenes/level_selection.tscn")
 
 
 func _on_2_2_pressed():
+	$Click.play()
+	await $Click.finished
 	get_tree().change_scene_to_file("res://Scenes/level_selection.tscn")
 
 
 func _on_2_3_pressed():
+	$Click.play()
+	await $Click.finished
 	get_tree().change_scene_to_file("res://Scenes/level_selection.tscn")
 
 
 func _on_3_1_pressed():
+	$Click.play()
+	await $Click.finished
 	get_tree().change_scene_to_file("res://Scenes/level_selection.tscn")
 
 
 func _on_3_2_pressed():
+	$Click.play()
+	await $Click.finished
 	get_tree().change_scene_to_file("res://Scenes/level_selection.tscn")
 
 
 func _on_3_3_pressed():
+	$Click.play()
+	await $Click.finished
 	get_tree().change_scene_to_file("res://Scenes/level_selection.tscn")
 
 
 func _on_back_button_pressed():
+	$Click.play()
+	await $Click.finished
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")

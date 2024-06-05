@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqi2w34q1hovr"]
+[gd_scene load_steps=7 format=3 uid="uid://cqi2w34q1hovr"]
 
 [ext_resource type="Script" path="res://Scenes/Towers/potion_explosion.gd" id="1_suxgf"]
 [ext_resource type="Texture2D" uid="uid://cjpfn160lxe0c" path="res://Assets/Sprites/Potion_bubble.png" id="2_ow8sp"]
+[ext_resource type="AudioStream" uid="uid://mio4e37do05k" path="res://Assets/SFX/SoundEffect/potion_splash.mp3" id="3_64vbr"]
 
 [sub_resource type="Gradient" id="Gradient_l3e4y"]
 offsets = PackedFloat32Array(0.640756, 1)
@@ -39,5 +40,8 @@ explosiveness = 0.7
 wait_time = 0.5
 one_shot = true
 autostart = true
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_64vbr")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

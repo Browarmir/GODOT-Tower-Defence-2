@@ -20,7 +20,8 @@ func _ready():
 func _process(delta):
 	if health <= 0:
 		$AnimationPlayer.play("death_animation")
-		
+		if $SFX.playing == false:
+			$SFX.play()
 	progress_bar.value = health
 	if progress_bar.value < progress_bar.max_value:
 		progress_bar.visible = true

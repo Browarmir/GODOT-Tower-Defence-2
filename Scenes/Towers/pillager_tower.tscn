@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbv4coij3vmnf"]
+[gd_scene load_steps=8 format=3 uid="uid://bbv4coij3vmnf"]
 
 [ext_resource type="Script" path="res://Scenes/Towers/pillager_tower.gd" id="1_1xqtn"]
 [ext_resource type="Texture2D" uid="uid://ytm1ca1mjq02" path="res://Assets/Textures/towers/pillager.png" id="2_s3msb"]
 [ext_resource type="Texture2D" uid="uid://csgfoqg165sao" path="res://Assets/Textures/items/crossbow_standby.png" id="3_6y6pv"]
+[ext_resource type="AudioStream" uid="uid://crnioynchyrhw" path="res://Assets/SFX/SoundEffect/crossbow_shot.mp3" id="4_a8ssv"]
+[ext_resource type="AudioStream" uid="uid://d344g4qiy4l1m" path="res://Assets/SFX/SoundEffect/pillager.mp3" id="4_jkyik"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lcrmh"]
 radius = 358.113
@@ -44,6 +46,13 @@ shape = SubResource("RectangleShape2D_6ia8s")
 [node name="ShootTimer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_a8ssv")
+
+[node name="SpawnSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_jkyik")
+volume_db = -5.0
 
 [connection signal="area_entered" from="TurretRange" to="." method="_on_turret_range_area_entered" flags=18]
 [connection signal="area_exited" from="TurretRange" to="." method="_on_turret_range_area_exited" flags=18]

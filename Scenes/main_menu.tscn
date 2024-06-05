@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxvrfbi5qk43n"]
+[gd_scene load_steps=7 format=3 uid="uid://bxvrfbi5qk43n"]
 
 [ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_0mefd"]
 [ext_resource type="PackedScene" uid="uid://def5c66n47p5l" path="res://Scenes/tile_map.tscn" id="1_qi1g8"]
 [ext_resource type="Texture2D" uid="uid://tmplylks7573" path="res://Assets/Sprites/button.png" id="2_tmy71"]
 [ext_resource type="Texture2D" uid="uid://b25kxpyea87fi" path="res://Assets/Sprites/button_clicked.png" id="3_kh62j"]
 [ext_resource type="Texture2D" uid="uid://cmsbmfk1ehorf" path="res://Assets/Sprites/button_hover.png" id="4_4hoc3"]
+[ext_resource type="AudioStream" uid="uid://bll737jmi7u0e" path="res://Assets/SFX/SoundEffect/click_fixed.mp3" id="6_aah22"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_0mefd")
@@ -113,6 +114,9 @@ offset_bottom = 236.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "(working title)"
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_aah22")
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="button_down" from="Options" to="." method="_on_options_button_down"]
