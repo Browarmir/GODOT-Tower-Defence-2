@@ -48,39 +48,39 @@ func _ready():
 
 
 func _on_1_1_pressed():
-	get_tree().change_scene_to_file("res://Scenes/level_selection.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/1_1.tscn")
 
 
 func _on_1_2_pressed():
-	get_tree().change_scene_to_file("res://Scenes/level_selection.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/1_2.tscn")
 
 
 func _on_1_3_pressed():
-	get_tree().change_scene_to_file("res://Scenes/level_selection.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/1_3.tscn")
 
 
 func _on_2_1_button_down():
-	get_tree().change_scene_to_file("res://Scenes/level_selection.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/2_1.tscn")
 
 
 func _on_2_2_pressed():
-	get_tree().change_scene_to_file("res://Scenes/level_selection.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/2_2.tscn")
 
 
 func _on_2_3_pressed():
-	get_tree().change_scene_to_file("res://Scenes/level_selection.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/2_3.tscn")
 
 
 func _on_3_1_pressed():
-	get_tree().change_scene_to_file("res://Scenes/level_selection.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/3_1.tscn")
 
 
 func _on_3_2_pressed():
-	get_tree().change_scene_to_file("res://Scenes/level_selection.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/3_2.tscn")
 
 
 func _on_3_3_pressed():
-	get_tree().change_scene_to_file("res://Scenes/level_selection.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/3_3.tscn")
 
 
 func _on_back_button_pressed():

@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://h0fs84trqyje"]
 
-[ext_resource type="Script" path="res://Scripts/game.gd" id="1_axpuo"]
+[ext_resource type="Script" path="res://Scenes/Levels/1_2.gd" id="1_xvvyb"]
 [ext_resource type="PackedScene" uid="uid://def5c66n47p5l" path="res://Scenes/tile_map.tscn" id="2_ai04x"]
 [ext_resource type="Texture2D" uid="uid://tmplylks7573" path="res://Assets/Sprites/button.png" id="3_62m0i"]
 [ext_resource type="Texture2D" uid="uid://b25kxpyea87fi" path="res://Assets/Sprites/button_clicked.png" id="4_un27m"]
@@ -20,12 +20,12 @@ size = Vector2(200, 343)
 
 [sub_resource type="Curve2D" id="Curve2D_31o1e"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 241, 826, 0, 0, 0, 0, 239, 398, 0, 0, 0, 0, 497, 399, 0, 0, 0, 0, 496, 176, 0, 0, 0, 0, 725, 176, 0, 0, 0, 0, 728, 539, 0, 0, 0, 0, 1001, 539, 0, 0, 0, 0, 1003, 175, 0, 0, 0, 0, 2031, 177)
+"points": PackedVector2Array(0, 0, 0, 0, 976, 742, 0, 0, 0, 0, 980, 178, 0, 0, 0, 0, 178, 175, 0, 0, 0, 0, 178, 432, 0, 0, 0, 0, 1356, 431)
 }
-point_count = 9
+point_count = 5
 
 [node name="1_2" type="Node2D"]
-script = ExtResource("1_axpuo")
+script = ExtResource("1_xvvyb")
 
 [node name="Gate" type="Area2D" parent="."]
 
@@ -40,10 +40,6 @@ layer_0/tile_data = PackedInt32Array(0, 196610, 0, 65536, 196610, 0, 131072, 196
 one_shot = true
 
 [node name="EnemyTimer" type="Timer" parent="."]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(557, 323)
-zoom = Vector2(1.68, 1.68)
 
 [node name="GUI" type="CanvasLayer" parent="."]
 layer = 2
@@ -302,46 +298,34 @@ follow_viewport_enabled = true
 [node name="Platforms" type="Node2D" parent="."]
 
 [node name="Platform" parent="Platforms" instance=ExtResource("14_f83w1")]
-position = Vector2(561, 242)
+position = Vector2(177, 129)
 
 [node name="Platform2" parent="Platforms" instance=ExtResource("14_f83w1")]
-position = Vector2(659, 242)
+position = Vector2(1020, 176)
 
 [node name="Platform3" parent="Platforms" instance=ExtResource("14_f83w1")]
-position = Vector2(172, 607)
+position = Vector2(124, 430)
 
 [node name="Platform4" parent="Platforms" instance=ExtResource("14_f83w1")]
-position = Vector2(308, 459)
+position = Vector2(235, 214)
 
 [node name="Platform5" parent="Platforms" instance=ExtResource("14_f83w1")]
-position = Vector2(805, 462)
+position = Vector2(1032, 495)
 
 [node name="Platform6" parent="Platforms" instance=ExtResource("14_f83w1")]
-position = Vector2(240, 345)
+position = Vector2(236, 376)
 
 [node name="Platform7" parent="Platforms" instance=ExtResource("14_f83w1")]
-position = Vector2(795, 245)
+position = Vector2(920, 223)
 
 [node name="Platform8" parent="Platforms" instance=ExtResource("14_f83w1")]
-position = Vector2(1085, 247)
+position = Vector2(1030, 377)
 
 [node name="Platform9" parent="Platforms" instance=ExtResource("14_f83w1")]
-position = Vector2(935, 247)
+position = Vector2(917, 379)
 
 [node name="Platform10" parent="Platforms" instance=ExtResource("14_f83w1")]
-position = Vector2(938, 461)
-
-[node name="Platform11" parent="Platforms" instance=ExtResource("14_f83w1")]
-position = Vector2(1239, 112)
-
-[node name="Platform12" parent="Platforms" instance=ExtResource("14_f83w1")]
-position = Vector2(1238, 235)
-
-[node name="Platform13" parent="Platforms" instance=ExtResource("14_f83w1")]
-position = Vector2(1592, 116)
-
-[node name="Platform14" parent="Platforms" instance=ExtResource("14_f83w1")]
-position = Vector2(1594, 235)
+position = Vector2(919, 492)
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_31o1e")
